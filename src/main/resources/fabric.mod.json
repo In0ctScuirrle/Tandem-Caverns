@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "tows-tandem-caverns",
+	"version": "${version}",
+	"name": "To Oblivion, We Stride | Tandem Caverns",
+	"description": "Mining, Masonry and Metallurgy. All essential trades learned in the Tandem Caverns!",
+	"authors": [
+		"Will Blanchard"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/tows-tandem-caverns/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"lu.embellishedduck.core.TandemCaverns"
+		],
+		"client": [
+          "lu.embellishedduck.client.TandemCavernsClient"
+		],
+		"fabric-datagen": [
+			"lu.embellishedduck.datagen.TandemCavernsDataGenerator"
+		]
+	},
+	"mixins": [
+		"tows-tandem-caverns.mixins.json",
+		{
+			"config": "tows-tandem-caverns.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
