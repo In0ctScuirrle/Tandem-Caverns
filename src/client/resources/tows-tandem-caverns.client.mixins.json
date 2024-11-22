@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "lu.embellishedduck.mixin.client",
+	"package": "lu.embellishedduck.client_mixin",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"ExampleClientMixin"
+
 	],
 	"injectors": {
 		"defaultRequire": 1
