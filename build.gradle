@@ -16,7 +16,10 @@ base {
 //=======
 repositories {
 
-
+	maven {
+		name = "Terraformers"
+		url = "https://maven.terraformersmc.com/"
+	}
 
 }
 
@@ -44,6 +47,8 @@ fabricApi {
 	configureDataGeneration()
 }
 
+
+
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -52,9 +57,15 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 	
 }
 
+
+//======================
+// PROCESSING RESOURCES
+//======================
 processResources {
 	inputs.property "version", project.version
 
@@ -77,13 +88,20 @@ java {
 	targetCompatibility = JavaVersion.VERSION_21
 }
 
+
+//==============
+// JAR BUILDING
+//==============
 jar {
 	from("LICENSE") {
 		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
 
-// configure the maven publication
+
+//============
+// PUBLISHING
+//============
 publishing {
 	publications {
 		create("mavenJava", MavenPublication) {
@@ -92,11 +110,10 @@ publishing {
 		}
 	}
 
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
 	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
+
+
+
 	}
+
 }
